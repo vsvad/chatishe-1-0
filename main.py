@@ -10,6 +10,8 @@ def root():
     content='<meta charset="utf-32">'
     content+='<style>'+CSS_CHAT+'</style>'
     for messag in chat:
+        if messag.strip()=='':
+        	continue
         data=eval(messag)
         if request.remote_addr==data.person.ip:
             msg_content=data.format(ME)
