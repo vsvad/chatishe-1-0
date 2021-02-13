@@ -15,7 +15,7 @@ def root():
     f=open("chatishe.txt")
     chat=f.readlines()
     f.close()
-    content='<meta charset="utf-32"><title>Chatishe</title>'
+    content='<meta charset="utf-32"><title>Чатище</title>'
     content+='<style>'+CSS_CHAT+'</style>'
     for messag in chat:
         if messag.strip()=='':
@@ -62,9 +62,9 @@ def save():
     if name.strip()=='':
         name='Аноним'
     time=now()
-    msg=request.args.get('msg','<div style="color:#777">(No message)</div>')
+    msg=request.args.get('msg','<div style="color:#777">(Пусто)</div>')
     if msg.strip()=='':
-        msg='<div style="color:#777">(No message)</div>'
+        msg='<div style="color:#777">(Пусто)</div>'
     writetochat(name=name,msg=msg,ip=request.args.get('ip','0.0.0.0'),time=time)
     return redirect('/')
 @app.route('/admin/')
