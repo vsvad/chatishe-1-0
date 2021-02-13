@@ -59,14 +59,14 @@ def admin():
     o=request.args.get('o',None)
     if o is None:
         with open('chatishe.txt') as f:
-            c=f.read().strip().replace('\n','<br>')
+            c=f.read().strip()
         return f'<form action="/admin"><textarea style="width:640;height:480;">{c}</textarea><input type=submit></form>'
     else:
         if o=='-/-':
             o=''
         with open('chatishe.txt','w') as f:
             f.write(o)
-        return redirect('/admin')
+        return redirect('/')
 @app.route('/clear/')
 def clear():
     with open('chatishe.txt','w') as f:
