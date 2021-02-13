@@ -2,6 +2,14 @@ from flask import *
 from chat import *
 import re,os
 app = Flask(__name__)
+class Var:
+    def __init__(self,v):
+        self.v=v
+    def set(self,v):
+        self.v=v
+    def get(self):
+        return self.v
+lck=Var(False)
 @app.route('/')
 def root():
     f=open("chatishe.txt")
@@ -18,7 +26,7 @@ def root():
         else:
             msg_content=data.format(NOT_ME)
         content+=msg_content
-    return content+'''<br><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    form='''<br><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>'''+CSS_TEXTAREA+CSS_SUBMIT_RESET+CSS_CHANGE+'''</style>
 <form action="/save/">
 <script>
@@ -38,6 +46,9 @@ IP вместо имени:
 <i class="fa fa-trash bg-red" onclick="fmreset();"></i>
 </div>
 </form>'''
+    if lck.get():
+        form=''
+    return content+form
 @app.route('/write/')
 def write():
     return '<h1 style="font-size:500px;color:orange;>☢error</h1>',301
@@ -71,6 +82,10 @@ def admin():
 def clear():
     with open('chatishe.txt','w') as f:
         f.write('')
+    return redirect('/')
+@app.route('/toggle/')
+def toggle():
+    lck.set(not lck.get())
     return redirect('/')
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=os.environ.get("PORT", 5000))
