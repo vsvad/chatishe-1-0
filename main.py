@@ -65,7 +65,10 @@ def save():
     if name.strip()=='':
         name='Аноним'
     time=now()
-    writetochat(name=name,msg=request.args.get('msg','<div style="color:#777">(No message)</div>'),ip=request.args.get('ip','0.0.0.0'),time=time)
+    msg=request.args.get('msg','<div style="color:#777">(No message)</div>')
+    if msg.strip()=='':
+        msg='<div style="color:#777">(No message)</div>'
+    writetochat(name=name,msg=msg,ip=request.args.get('ip','0.0.0.0'),time=time)
     return redirect('/')
 @app.route('/admin/')
 def admin():
