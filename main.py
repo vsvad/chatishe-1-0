@@ -60,7 +60,7 @@ def admin():
     if o is None:
         with open('chatishe.txt') as f:
             c=f.read().strip()
-        return f'<form action="/admin"><textarea style="width:640;height:480;">{c}</textarea><input type=submit></form>'
+        return f'<form action="/admin"><textarea name=o style="width:640;height:480;">{c}</textarea><input type=submit></form>'
     else:
         if o=='-/-':
             o=''
