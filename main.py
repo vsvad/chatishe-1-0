@@ -49,6 +49,8 @@ def save():
         name=re.sub('H$','',name)
     else:
         name=request.args.get('ip')
+    if name.strip()=='':
+        name='Аноним'
     time=now()
     writetochat(name=name,msg=request.args.get('msg'),ip=request.args.get('ip'),time=time)
     return redirect('/')
