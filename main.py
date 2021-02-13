@@ -55,6 +55,8 @@ def write():
 
 @app.route('/save/')
 def save():
+    if lck.get():
+        abort(403)
     name=request.args.get('nameip',default=request.args.get('name',default='Аноним')+'H')
     if name.endswith('H'):
         name=re.sub('H$','',name)
