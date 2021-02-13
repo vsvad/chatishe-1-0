@@ -25,7 +25,7 @@ def root():
 '''+SCRIPT_FMSR+'''
 </script>
 Имя:<input type=text name="name"><br>
-Сообщение:<textarea name=msg></textarea><br>
+Сообщение:<textarea name=msg style="width:640;height:480;"></textarea><br>
 <input type=hidden value="'''+request.remote_addr+'''" name=ip>
 IP вместо имени:
 <label class="switch">
