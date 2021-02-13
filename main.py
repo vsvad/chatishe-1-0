@@ -47,7 +47,7 @@ IP вместо имени:
 </div>
 </form>'''
     if lck.get():
-        form='<div style="color:#777;font-size:2em;">Чатище отключено :(</div>'
+        form='<div align="center" style="color:#777;font-size:1.5em;">Чатище отключено :(</div>'
     return content+form
 
 @app.route('/save/')
