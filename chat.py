@@ -9,6 +9,8 @@ def encode(string):
     return result[:-1]
 
 def decode(string):
+    if string='':
+        return ''
     result=''
     splited=string.split('_')
     for code in splited:
