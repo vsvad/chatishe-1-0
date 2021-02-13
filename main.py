@@ -70,6 +70,7 @@ def admin():
 @app.route('/clear/')
 def clear():
     with open('chatishe.txt','w') as f:
-        return redirect('/')
+        f.write('')
+    return redirect('/')
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=os.environ.get("PORT", 5000))
