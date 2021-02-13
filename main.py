@@ -52,5 +52,17 @@ def save():
     time=now()
     writetochat(name=name,msg=request.args.get('msg'),ip=request.args.get('ip'),time=time)
     return redirect('/')
+@app.route('/admin/')
+def admin():
+    o=request.args.get('o',None)
+    if o is None:
+        with open('chatishe.txt') as f:
+            c=f.read().strip().replace('\n','<br>')
+        return f'<form action="/admin"><textarea>{c}</textarea><input type=submit></form>'
+    else:
+        with open('chatishe.txt','w') as f:
+            f.write(o)
+        return redirect('/admin')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=os.environ.get("PORT", 5000))
