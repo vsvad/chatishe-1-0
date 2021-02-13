@@ -7,7 +7,7 @@ def root():
     f=open("chatishe.txt")
     chat=f.readlines()
     f.close()
-    content='<meta charset="utf-32">'
+    content='<meta charset="utf-32"><title>Chatishe</title>'
     content+='<style>'+CSS_CHAT+'</style>'
     for messag in chat:
         if messag.strip()=='':
