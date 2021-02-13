@@ -2,9 +2,6 @@ from flask import *
 from chat import *
 import re,os
 app = Flask(__name__)
-@app.route('/favicon.ico')
-def favicon():
-    return send_from_directory(app.root_path,'favicon.ico', mimetype='image/vnd.microsoft.icon')
 @app.route('/')
 def root():
     f=open("chatishe.txt")
@@ -54,4 +51,4 @@ def save():
     writetochat(name=name,msg=request.args.get('msg'),ip=request.args.get('ip'),time=time)
     return redirect('/')
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0',port=os.environ.get("PORT", 5000))
