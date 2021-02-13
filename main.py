@@ -47,11 +47,8 @@ IP вместо имени:
 </div>
 </form>'''
     if lck.get():
-        form=''
+        form='<div style="color:#777;font-size:2em;">Чатище отключено :(</div>'
     return content+form
-@app.route('/write/')
-def write():
-    return '<h1 style="font-size:500px;color:orange;>☢error</h1>',301
 
 @app.route('/save/')
 def save():
