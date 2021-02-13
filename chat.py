@@ -41,8 +41,8 @@ def now():
 
 def writetochat(**data):
     ip=encode(data['ip'])
-    msg=encode(data['msg'].replace('\n','<br>').replace('$IP',ip))
-    name=encode(data['name'].replace('$IP',ip))
+    msg=encode(data['msg'].replace('\n','<br>').replace('$IP',decode(ip)))
+    name=encode(data['name'].replace('$IP',decode(ip)))
     time=encode(data['time'])
     txt=f'Msg(person=Person(name="{name}",ip="{ip}"),messag="{msg}",time="{time}")'
     f=open('chatishe.txt','a')
