@@ -60,11 +60,16 @@ def admin():
     if o is None:
         with open('chatishe.txt') as f:
             c=f.read().strip().replace('\n','<br>')
-        return f'<form action="/admin"><textarea>{c}</textarea><input type=submit></form>'
+        return f'<form action="/admin"><textarea style="width:640;height:480;">{c}</textarea><input type=submit></form>'
     else:
+        if o=='-/-':
+            o=''
         with open('chatishe.txt','w') as f:
             f.write(o)
         return redirect('/admin')
-
+@app.route('/clear/')
+def clear():
+    with open('chatishe.txt','w') as f:
+        return redirect('/')
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=os.environ.get("PORT", 5000))
