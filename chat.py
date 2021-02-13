@@ -3,13 +3,15 @@ from datetime import datetime
 
 def encode(string):
     result=''
+    if not string:
+        return ''
     for char in string:
         result+=hex(ord(char))[2:]
         result+='_'
     return result[:-1]
 
 def decode(string):
-    if string=='':
+    if not string:
         return ''
     result=''
     splited=string.split('_')
