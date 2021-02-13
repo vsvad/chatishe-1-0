@@ -1,5 +1,6 @@
 import socket
 from datetime import datetime
+from bleach import linkify
 
 def encode(string):
     result=''
@@ -33,6 +34,7 @@ class Msg:
         self.person=data['person']
         self.messag=decode(data['messag'])
         self.time=decode(data['time'])
+        self.messag=linkify(self.messag,skip_tags='a pre code unlink'.split())
     def format(self,who):
         t=who.replace('{person}',self.person.name)
         t=t.replace('{messag}',self.messag)
