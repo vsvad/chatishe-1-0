@@ -56,7 +56,8 @@ IP вместо имени:
 </form>'''
     if lck.get():
         form='<div align="center" style="color:#777;font-size:1.5em;">Чатище отключено :(</div>'
-    return content+form
+    metrika='''<!-- Yandex.Metrika informer --> <a href="https://metrika.yandex.ru/stat/?id=72458617&amp;from=informer" target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/72458617/3_1_ECECECFF_CCCCCCFF_0_pageviews" style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" /></a> <!-- /Yandex.Metrika informer --> <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(72458617, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/72458617" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->'''
+    return content+form+'<div style="position: fixed;left: 0;bottom: 0;width: 100%;text-align: center;">Яндекс. Метрика: '+metrika+'</div>'
 
 @app.route('/save/')
 def save():
