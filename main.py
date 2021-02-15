@@ -10,6 +10,14 @@ class Var:
     def get(self):
         return self.v
 lck=Var(False)
+@app.route("yandex_678a4b246f7010d9.html")
+def yandex_webmaster():
+    return '''<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>Verification: 678a4b246f7010d9</body>
+</html>'''
 @app.route('/')
 def root():
     f=open("chatishe.txt")
