@@ -10,7 +10,7 @@ class Var:
     def get(self):
         return self.v
 lck=Var(False)
-@app.route("yandex_678a4b246f7010d9.html")
+@app.route("/yandex_678a4b246f7010d9.html")
 def yandex_webmaster():
     return '''<html>
     <head>
